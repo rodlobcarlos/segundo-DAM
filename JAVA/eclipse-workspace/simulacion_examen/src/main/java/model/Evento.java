@@ -114,19 +114,13 @@ public class Evento {
 		return valido;
 
 	}
-
-	EstadoEven even;
-
-	public boolean modificaEvento(EstadoEven estado) {
-		boolean EstadoCorrecto = false;
-		if(estado.equals(estado.APLAZADO) && even.equals(even.PROGRAMADO)) {
-			EstadoCorrecto = true;
-			EstadoEven evento = EstadoEven.PROGRAMADO;
-			System.out.println("El estado se ha cambiado a: " + evento);
-		} else if(estado.equals(estado.PENDIENTE) && even.equals(even.PROGRAMADO) {
-			 
-		}
-		return EstadoCorrecto;
+	
+	public boolean modificarEstado(EstadoEven nuevo_estado) {
+		boolean esModificado = false;
+		if(estado.equals(estado.PENDIENTE) && (nuevo_estado.equals(nuevo_estado.PROGRAMADO)
+				|| nuevo_estado.equals(nuevo_estado.CANCELADO) || nuevo_estado.equals(nuevo_estado.FINALIZADO)))
+			EstadoEven  = 
+		return esModificado;
 		
 	}
 }
