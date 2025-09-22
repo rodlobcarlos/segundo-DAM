@@ -1,0 +1,10 @@
+package repositorio;
+
+public class Usuario_repositorio {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
