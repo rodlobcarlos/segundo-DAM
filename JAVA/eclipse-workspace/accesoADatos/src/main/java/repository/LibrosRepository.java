@@ -40,7 +40,7 @@ public class LibrosRepository {
 		boolean esActualizado = false;
 		if(libros.contains(libro)) {
 			esActualizado = true;
-			
+
 		} else {
 			throw new LibreriaException("Este libro no existe.");
 		}
@@ -51,6 +51,7 @@ public class LibrosRepository {
 		boolean esEliminado = false;
 		if(libros.contains(libro)) {
 			libros.remove(libro);
+			 esEliminado = true;
 		} else {
 			throw new LibreriaException("Este libro no exise.");
 		}

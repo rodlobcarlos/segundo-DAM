@@ -3,7 +3,7 @@ package model;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class Evento {
+public abstract class Evento {
 
 	private static int contador;
 	private int id;
@@ -115,14 +115,42 @@ public class Evento {
 
 	}
 	
-	public boolean modificarEstado(EstadoEven nuevo_estado) {
+	public boolean modificarEstado(EstadoEven nuevo_estado) throws CraftterException {
 		boolean esModificado = false;
 		if(estado.equals(estado.PENDIENTE) && (nuevo_estado.equals(nuevo_estado.PROGRAMADO)
 				|| nuevo_estado.equals(nuevo_estado.CANCELADO) || nuevo_estado.equals(nuevo_estado.FINALIZADO))) {
-			 
-		}
+			this.setEstado(nuevo_estado);
 			
-		return esModificado;
+		} else if(estado.equals(estado.APLAZADO) && (nuevo_estado.equals(nuevo_estado.PROGRAMADO))) {
+			this.setEstado(nuevo_estado);
+			
+		} else if(estado.equals(estado.PROGRAMADO) && (nuevo_estado.equals(nuevo_estado.CANCELADO) 
+				|| nuevo_estado.equals(nuevo_estado.FINALIZADO) || nuevo_estado.equals(nuevo_estado.APLAZADO))) {
+			this.setEstado(nuevo_estado);
+			
+		} else if(estado.equals(estado.CANCELADO) && (nuevo_estado.equals(nuevo_estado.FINALIZADO) 
+				|| nuevo_estado.equals(nuevo_estado.APLAZADO))) {
+			this.setEstado(nuevo_estado);
+			
+		} else if(estado.equals(estado.FINALIZADO) && (nuevo_estado.equals(nuevo_estado.APLAZADO))) {
+			this.setEstado(nuevo_estado);
+
+		} else {
+			throw new CraftterException("No es posible pasar al estado: " + nuevo_estado);
+		}
+		return esModificado;	
+	}
+	
+	public int getPorcentajeOcupacion() {
+		int porcentajeOcupacion = capacidad_maxima_asistentes / num_entradasVendidas;
+		return porcentajeOcupacion;
+	}
+	
+	public int getPorcentajeOcupacion(int numeroEntradas) {
+		int calculoOcupacion = num_entradasVendidas + numeroEntradas;
+		return calculoOcupacion;
 		
 	}
+	
+	public abstract double calcularCosteBase();
 }
