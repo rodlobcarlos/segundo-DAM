@@ -118,8 +118,10 @@ public class Evento {
 	public boolean modificarEstado(EstadoEven nuevo_estado) {
 		boolean esModificado = false;
 		if(estado.equals(estado.PENDIENTE) && (nuevo_estado.equals(nuevo_estado.PROGRAMADO)
-				|| nuevo_estado.equals(nuevo_estado.CANCELADO) || nuevo_estado.equals(nuevo_estado.FINALIZADO)))
-			EstadoEven  = 
+				|| nuevo_estado.equals(nuevo_estado.CANCELADO) || nuevo_estado.equals(nuevo_estado.FINALIZADO))) {
+			 
+		}
+			
 		return esModificado;
 		
 	}
