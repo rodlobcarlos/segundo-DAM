@@ -6,7 +6,7 @@ public class Editoriales {
 
 	private String nombre;
 	private String direccion;
-	private int cif;
+	private String cif;
 	private String web;
 	private String email;
 	
@@ -22,10 +22,10 @@ public class Editoriales {
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
-	public int getCif() {
+	public String getCif() {
 		return cif;
 	}
-	public void setCif(int cif) {
+	public void setCif(String cif) {
 		this.cif = cif;
 	}
 	public String getWeb() {
@@ -40,7 +40,7 @@ public class Editoriales {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Editoriales(String nombre, String direccion, int cif, String web, String email) {
+	public Editoriales(String nombre, String direccion, String cif, String web, String email) {
 		super();
 		this.nombre = nombre;
 		this.direccion = direccion;
@@ -48,6 +48,7 @@ public class Editoriales {
 		this.web = web;
 		this.email = email;
 	}
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(cif);
@@ -61,8 +62,9 @@ public class Editoriales {
 		if (getClass() != obj.getClass())
 			return false;
 		Editoriales other = (Editoriales) obj;
-		return cif == other.cif;
+		return Objects.equals(cif, other.cif);
 	}
+	
 	@Override
 	public String toString() {
 		return "Editoriales [nombre=" + nombre + ", direccion=" + direccion + ", cif=" + cif + ", web=" + web

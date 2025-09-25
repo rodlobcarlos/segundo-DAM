@@ -19,7 +19,7 @@ public class LibrosRepository {
 		this.libros = libros;
 	}
 
-	public LibrosRepository(Set<Libros> libros) {
+	public LibrosRepository() {
 		super();
 		this.libros = new HashSet<Libros>();
 	}
@@ -37,14 +37,16 @@ public class LibrosRepository {
 	}
 	
 	public boolean actualizarLibro(Libros libro) throws LibreriaException {
-		boolean esActualizado = false;
-		if(libros.contains(libro)) {
-			esActualizado = true;
-
-		} else {
+		boolean esActualizado = true;
+		Libros l = leerLibro(libro.getISBN());
+		if(l == null) {
+			esActualizado = false;
 			throw new LibreriaException("Este libro no existe.");
+		} else {
+			libros.remove(l);
+			libros.add(libro);
 		}
-		return false;
+		return esActualizado;
 	}
 	
 	public boolean eliminarLibro(Libros libro) throws LibreriaException {
