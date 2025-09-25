@@ -2,7 +2,7 @@ package model;
 
 import java.util.Objects;
 
-public class Editoriales {
+public class Editorial {
 
 	private String nombre;
 	private String direccion;
@@ -40,7 +40,7 @@ public class Editoriales {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Editoriales(String nombre, String direccion, String cif, String web, String email) {
+	public Editorial(String nombre, String direccion, String cif, String web, String email) {
 		super();
 		this.nombre = nombre;
 		this.direccion = direccion;
@@ -61,7 +61,7 @@ public class Editoriales {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Editoriales other = (Editoriales) obj;
+		Editorial other = (Editorial) obj;
 		return Objects.equals(cif, other.cif);
 	}
 	

@@ -4,27 +4,27 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-import model.Editoriales;
+import model.Editorial;
 import model.LibreriaException;
 
 public class EditorialRepository {
 
-	private Set<Editoriales> editoriales;
+	private Set<Editorial> editoriales;
 
-	public Set<Editoriales> getEditorial() {
+	public Set<Editorial> getEditorial() {
 		return editoriales;
 	}
 
-	public void setEditorial(Set<Editoriales> editorial) {
+	public void setEditorial(Set<Editorial> editorial) {
 		this.editoriales = editorial;
 	}
 
 	public EditorialRepository() {
 		super();
-		this.editoriales = new HashSet<Editoriales>();
+		this.editoriales = new HashSet<Editorial>();
 	}
 
-	public boolean añadirEditorial(Editoriales editorial) {
+	public boolean añadirEditorial(Editorial editorial) {
 		boolean esAñadido = false;
 		if(editoriales.contains(editorial)) {
 			System.out.println("El libro ya está añadido.");
@@ -36,9 +36,9 @@ public class EditorialRepository {
 		return esAñadido;
 	}
 	
-	public boolean actualizarEditorial(Editoriales ed) throws LibreriaException {
+	public boolean actualizarEditorial(Editorial ed) throws LibreriaException {
 		boolean esActualizado = true;
-		Editoriales e = leerEditorial(ed.getCif());
+		Editorial e = leerEditorial(ed.getCif());
 		if(e == null) {
 			esActualizado = false;
 			throw new LibreriaException("Este libro no existe.");
@@ -49,7 +49,7 @@ public class EditorialRepository {
 		return esActualizado;
 	}
 	
-	public boolean eliminarEditorial(Editoriales editorial) throws LibreriaException {
+	public boolean eliminarEditorial(Editorial editorial) throws LibreriaException {
 		boolean esEliminado = false;
 		if(editoriales.contains(editorial)) {
 			editoriales.remove(editorial);
@@ -60,7 +60,7 @@ public class EditorialRepository {
 		return false;
 	}
 	
-	public void consultarEditorial(Editoriales editorial) throws LibreriaException {
+	public void consultarEditorial(Editorial editorial) throws LibreriaException {
 		boolean esConsultado = false;
 		if(editoriales.contains(editorial)) {
 			System.out.println(editorial.toString());
@@ -70,12 +70,12 @@ public class EditorialRepository {
 		}
 	}
 	
-	public Editoriales leerEditorial(String cif) {
-		Editoriales editorial1 = null;
+	public Editorial leerEditorial(String cif) {
+		Editorial editorial1 = null;
 		boolean encontrado = false;
-		Iterator<Editoriales> l = editoriales.iterator();
+		Iterator<Editorial> l = editoriales.iterator();
 		while(!encontrado && l.hasNext()) {
-			Editoriales editorial2 = l.next();
+			Editorial editorial2 = l.next();
 			if(editorial2.getCif().equals(cif)) {
 				editorial1 = editorial2;
 				encontrado = true;
