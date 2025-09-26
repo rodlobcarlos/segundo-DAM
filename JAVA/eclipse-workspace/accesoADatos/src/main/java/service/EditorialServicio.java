@@ -2,25 +2,24 @@ package service;
 
 import java.util.Set;
 
-import Libreria.modelo.*;
-import Libreria.repositorio.*;
 import model.Editorial;
 import model.LibreriaException;
+import repository.EditorialRepository;
 
 public class EditorialServicio {
 
-	    private EditorialServicio editorialRep;
+	    private EditorialRepository editorialRep;
 
 	    public EditorialServicio() {
 	        super();
-	        this.editorialRep = new EditorialServicio();
+	        this.editorialRep = new EditorialRepository();
 	    }
 
-	    public EditorialServicio getEditorialRep() {
+	    public EditorialRepository getEditorialRep() {
 	        return editorialRep;
 	    }
 
-	    public void setEditorialRep(EditorialServicio editorialRep) {
+	    public void setEditorialRep(EditorialRepository editorialRep) {
 	        this.editorialRep = editorialRep;
 	    }
 
