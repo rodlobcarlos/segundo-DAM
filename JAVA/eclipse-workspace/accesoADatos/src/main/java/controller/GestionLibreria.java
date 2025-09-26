@@ -27,6 +27,11 @@ public class GestionLibreria {
 		System.out.println(rep.añadirLibro(l1));
 		System.out.println(rep.añadirLibro(l2)); // Repetido
 		
+<<<<<<< HEAD
+		
+		System.out.println(rep.leerLibro("ASD435G4F2H6J"));
+=======
+>>>>>>> d0674068106f022f842f2e76e99b01a65a8c648d
 		
 
 		System.out.println(rep.leerLibro("ASD435G4F2H6J"));
