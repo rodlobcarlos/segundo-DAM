@@ -19,7 +19,7 @@ public class LibrosRepository {
 		this.libros = libros;
 	}
 
-	public LibrosRepository(Set<Libros> libros) {
+	public LibrosRepository() {
 		super();
 		this.libros = new HashSet<Libros>();
 	}
@@ -34,6 +34,7 @@ public class LibrosRepository {
 	}
 	
 	public boolean actualizarLibro(Libros libro) throws LibreriaException {
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 		boolean esActualizado = false;
 		if(libros.contains(libro)) {
@@ -50,6 +51,16 @@ public class LibrosRepository {
 			esActualizado = false;
 			throw new LibreriaException("Este libro ya existe.");
 >>>>>>> Stashed changes
+=======
+		boolean esActualizado = true;
+		Libros l = leerLibro(libro.getISBN());
+		if(l == null) {
+			esActualizado = false;
+			throw new LibreriaException("Este libro no existe.");
+		} else {
+			libros.remove(l);
+			libros.add(libro);
+>>>>>>> d0674068106f022f842f2e76e99b01a65a8c648d
 		}
 		return esActualizado;
 	}
