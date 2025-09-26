@@ -24,29 +24,37 @@ public class LibrosRepository {
 		this.libros = new HashSet<Libros>();
 	}
 
-	public boolean añadirLibro(Libros libro) {
-		boolean esAñadido = false;
+	public void añadirLibro(Libros libro) {
 		if(libros.contains(libro)) {
 			System.out.println("El libro ya está añadido.");
 		}else {
 			libros.add(libro);
-			esAñadido = true;
 			System.out.println("Libro añadido: " + libro);		
 		}
-		return esAñadido;
 	}
 	
 	public boolean actualizarLibro(Libros libro) throws LibreriaException {
+<<<<<<< Updated upstream
 		boolean esActualizado = false;
 		if(libros.contains(libro)) {
 			esActualizado = true;
 
 		} else {
 			throw new LibreriaException("Este libro no existe.");
+=======
+		Libros p1 = leerLibro(libro.getISBN());
+		libros.remove(p1);
+		libros.add(libro);
+		boolean esActualizado = true;
+		if(p1 == null) {
+			esActualizado = false;
+			throw new LibreriaException("Este libro ya existe.");
+>>>>>>> Stashed changes
 		}
-		return false;
+		return esActualizado;
 	}
 	
+<<<<<<< Updated upstream
 	public boolean eliminarLibro(Libros libro) throws LibreriaException {
 		boolean esEliminado = false;
 		if(libros.contains(libro)) {
@@ -54,8 +62,15 @@ public class LibrosRepository {
 			 esEliminado = true;
 		} else {
 			throw new LibreriaException("Este libro no exise.");
+=======
+	public void eliminarLibro(Libros libro) throws LibreriaException {
+		Libros p2 = leerLibro(libro.getISBN());
+		libros.remove(p2);
+		boolean esEliminado = true;
+		if(p2 == null) {
+			throw new LibreriaException("Este libro ya existe.");
+>>>>>>> Stashed changes
 		}
-		return false;
 	}
 	
 	public void consultarLibros(Libros libro) throws LibreriaException {
@@ -68,7 +83,7 @@ public class LibrosRepository {
 		}
 	}
 	
-	public Libros leerLibro(String ISBN) {
+	public Libros leerLibro(String ISBN) throws LibreriaException {
 		Libros libro1 = null;
 		boolean encontrado = false;
 		Iterator<Libros> l = libros.iterator();
@@ -77,6 +92,8 @@ public class LibrosRepository {
 			if(libro2.getISBN().equals(ISBN)) {
 				libro1 = libro2;
 				encontrado = true;
+			} else {
+				throw new LibreriaException("Este libro no exise.");
 			}
 		}
 		return libro1;

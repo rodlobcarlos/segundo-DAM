@@ -27,12 +27,7 @@ public class GestionLibreria {
 		System.out.println(rep.añadirLibro(l1));
 		System.out.println(rep.añadirLibro(l2)); // Repetido
 		
-		try {
-			System.out.println(rep.actualizarLibro(l1));
-		} catch (LibreriaException e) {
-			System.out.println(e.getMessage());
-		}
-
+		
 		System.out.println(rep.leerLibro("ASD435G4F2H6J"));
 		
 
