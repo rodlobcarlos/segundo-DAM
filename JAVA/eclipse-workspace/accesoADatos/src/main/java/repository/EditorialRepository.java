@@ -1,11 +1,5 @@
 package repository;
 
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
-
-import model.Editorial;
-import model.LibreriaException;
 
 public class EditorialRepository {
 
@@ -83,4 +77,5 @@ public class EditorialRepository {
 		}
 		return editorial1;
 	}
+	
 }

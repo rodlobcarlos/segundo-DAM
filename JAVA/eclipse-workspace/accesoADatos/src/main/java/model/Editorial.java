@@ -2,7 +2,7 @@ package model;
 
 import java.util.Objects;
 
-public class Editorial {
+public class Editorial implements Comparable<Editorial>{
 
 	private String nombre;
 	private String direccion;
@@ -70,6 +70,9 @@ public class Editorial {
 		return "Editoriales [nombre=" + nombre + ", direccion=" + direccion + ", cif=" + cif + ", web=" + web
 				+ ", email=" + email + "]";
 	}
-	
+	@Override
+	public int compareTo(Editorial o) {
+		return this.nombre.compareTo(o.nombre);
+	}
 	
 }

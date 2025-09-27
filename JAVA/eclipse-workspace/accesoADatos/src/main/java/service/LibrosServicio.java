@@ -3,6 +3,7 @@ package service;
 import java.util.HashSet;
 import java.util.Set;
 
+import model.Editorial;
 import model.GeneroLibro;
 import model.LibreriaException;
 import model.Libros;
@@ -63,5 +64,14 @@ public class LibrosServicio {
 		return libro;
 	}
 	
+	public Set<Libros> cif(Editorial cif) {
+		Set<Libros> libro = new HashSet<Libros>();
+		for(Libros l : libro) {
+			if(l.getEditorial().getCif().equals(cif)) {
+				libro.add(l);
+			}
+		}
+		return libro;
+	}
 	
 }

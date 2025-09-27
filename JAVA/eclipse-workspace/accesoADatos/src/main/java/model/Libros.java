@@ -10,7 +10,7 @@ public class Libros {
 	private String autor;
 	private LocalDate año_publicacion;
 	private GeneroLibro genero;
-	private String editorial;
+	private Editorial editorial;
 	private int ejemplares_disponibles;
 	
 	public String getISBN() {
@@ -43,10 +43,10 @@ public class Libros {
 	public void setGenero(GeneroLibro genero) {
 		this.genero = genero;
 	}
-	public String getEditorial() {
+	public Editorial getEditorial() {
 		return editorial;
 	}
-	public void setEditorial(String editorial) {
+	public void setEditorial(Editorial editorial) {
 		this.editorial = editorial;
 	}
 	public int getEjemplares_disponibles() {
@@ -55,7 +55,7 @@ public class Libros {
 	public void setEjemplares_disponibles(int ejemplares_disponibles) {
 		this.ejemplares_disponibles = ejemplares_disponibles;
 	}
-	public Libros(String ISBN, String titulo, String autor, LocalDate año_publicacion, GeneroLibro genero, String editorial,
+	public Libros(String ISBN, String titulo, String autor, LocalDate año_publicacion, GeneroLibro genero, Editorial editorial,
 			int ejemplares_disponibles) {
 		super();
 		this.ISBN = ISBN;
